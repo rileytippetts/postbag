@@ -160,42 +160,6 @@ get '/notebooks' do
   end
 end
 
-get '/notebooks/new' do
-  erb "notebooks/new".to_sym
-end
-
-post '/notebooks/create' do
-  if !params[:notebook_name].empty?
-    notebook = Evernote::EDAM::Type::Notebook.new
-    notebook.name = params[:notebook_name]
-    note_store.createNotebook(notebook)
-    redirect '/notebooks'
-  else
-    @notice = 'Notebook name cannot be empty.'
-    erb "notebooks/new".to_sym
-  end
-end
-
-get '/notebooks/:notebook_id/edit' do
-  @notebook = find_notebook
-  erb "notebooks/edit".to_sym
-end
-
-put '/notebooks/:notebook_id' do
-  @notebook = find_notebook
-  if !params[:notebook_name].empty?
-    @notebook.name = params[:notebook_name]
-    note_store.updateNotebook(@notebook)
-    redirect '/notebooks'
-  else
-    @notice = 'Notebook name cannot be empty.'
-    erb "notebooks/edit".to_sym
-  end
-end
-
-# Evernote API does not support deleting notebook, even under full access.
-delete '/notebooks/:notebook_id' do
-end
 
 ##
 # note CRUD start
@@ -209,99 +173,9 @@ get '/notebooks/:notebook_id/notes' do
   erb "notebooks/notes/index".to_sym
 end
 
-get '/notebooks/:notebook_id/notes/new' do
-  erb "notebooks/notes/new".to_sym
-end
-
-post '/notebooks/:notebook_id/notes/create' do
-  notebook = find_notebook
-
-  if !params[:note_title].empty?
-    note = Evernote::EDAM::Type::Note.new
-    note.title = params[:note_title]
-
-    n_body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-    n_body += "<!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\">"
-    n_body += "<en-note>#{params[:note_content]}</en-note>"
-    note.content = n_body
-
-    note.notebookGuid = notebook.guid
-
-    ## Attempt to create note in Evernote account
-    begin
-      note = note_store.createNote(note)
-      redirect "/notebooks/#{params[:notebook_id]}/notes/#{note.guid}"
-    rescue Evernote::EDAM::Error::EDAMUserException => edue
-      ## Something was wrong with the note data
-      ## See EDAMErrorCode enumeration for error code explanation
-      ## http://dev.evernote.com/documentation/reference/Errors.html#Enum_EDAMErrorCode
-      @notice = "EDAMUserException: #{edue}"
-      erb "notebooks/notes/new".to_sym
-    rescue Evernote::EDAM::Error::EDAMNotFoundException
-      ## Parent Notebook GUID doesn't correspond to an actual notebook
-      @notice = "EDAMNotFoundException: Invalid parent notebook GUID"
-      erb "notebooks/notes/new".to_sym
-    end
-
-  else
-    @notice = 'Note title cannot be empty.'
-    erb "notebooks/notes/new".to_sym
-  end
-end
-
-get '/notebooks/:notebook_id/notes/:id/edit' do
-  @note = find_note
-  erb "notebooks/notes/edit".to_sym
-end
-
-put '/notebooks/:notebook_id/notes/:id/update' do
-  @note = find_note
-
-  if !params[:note_title].empty?
-    @note.title = params[:note_title]
-
-    n_body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-    n_body += "<!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\">"
-    n_body += "<en-note>#{params[:note_content]}</en-note>"
-    @note.content = n_body
-
-    ## Attempt to create note in Evernote account
-    begin
-      note_store.updateNote(@note)
-      redirect "/notebooks/#{params[:notebook_id]}/notes/#{params[:id]}"
-    rescue Evernote::EDAM::Error::EDAMUserException => edue
-      ## Something was wrong with the note data
-      ## See EDAMErrorCode enumeration for error code explanation
-      ## http://dev.evernote.com/documentation/reference/Errors.html#Enum_EDAMErrorCode
-      @notice = "EDAMUserException: #{edue}"
-      erb "notebooks/notes/new".to_sym
-    rescue Evernote::EDAM::Error::EDAMNotFoundException
-      ## Parent Notebook GUID doesn't correspond to an actual notebook
-      @notice = "EDAMNotFoundException: Invalid parent notebook GUID"
-      erb "notebooks/notes/edit".to_sym
-    end
-
-  else
-    @notice = 'Note title cannot be empty.'
-    erb "notebooks/notes/edit".to_sym
-  end
-end
-
 get '/notebooks/:notebook_id/notes/:id' do
   @note = find_note
   @content = get_note_content(@note)
   erb "notebooks/notes/show".to_sym
 end
 
-delete '/notebooks/:notebook_id/notes/:id' do
-  @note = find_note
-  begin
-    note_store.deleteNote(@note.guid)
-    @notice = "Successfully delete note."
-  rescue => e
-    @notice = "Error deleting note: #{e.message}"
-  end
-
-  # Need to redirect with flash
-  redirect "/notebooks/#{params[:notebook_id]}/notes"
-end
