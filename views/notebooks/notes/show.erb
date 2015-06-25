@@ -19,7 +19,9 @@
       <%= @note.title %>
     </div>
     <div class="panel-body">
+      Date Created: <%= Time.at(@note.created / 1000); %><br>
+      Characters: <%= @note.contentLength %><br>
+      Tags: <%= @note.tagGuids %>
     </div>
   </div>
 <% end %>
-

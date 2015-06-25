@@ -178,4 +178,3 @@ get '/notebooks/:notebook_id/notes/:id' do
   @content = get_note_content(@note)
   erb "notebooks/notes/show".to_sym
 end
-
