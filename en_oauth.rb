@@ -112,7 +112,7 @@ get '/requesttoken' do
 end
 
 ##
-# Redirect the user to Evernote for authoriation
+# Redirect the user to Evernote for authorization
 ##
 get '/authorize' do
   if session[:request_token]
