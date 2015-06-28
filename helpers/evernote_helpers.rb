@@ -1,4 +1,4 @@
-# Required in '/app.rb'
+# required in '/app.rb'
 
 helpers do
   def auth_token

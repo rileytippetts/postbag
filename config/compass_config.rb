@@ -7,12 +7,12 @@ environment           = :development
 # http_stylesheets_path = '/css'
 # http_images_path      = '/img'
 # http_javascripts_path = '/js'
-# 
+#
 # # File system locations
-# css_dir               = File.join 'public', 'css'
+# css_dir               = File.join 'assets', 'css'
 # # sass_dir              = File.join 'stylesheets'
-# images_dir            = File.join 'public', 'img'
-# javascripts_dir       = File.join 'public', 'js'
+# images_dir            = File.join 'assets', 'img'
+# javascripts_dir       = File.join 'assets', 'js'
 #
 # # Syntax preference
 # # preferred_syntax      = :scss
