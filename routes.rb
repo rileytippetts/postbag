@@ -1,5 +1,11 @@
 # required in '/app.rb'
 
+# Compile sass
+# get '/public/css/:name.css' do
+#   content_type 'text/css', :charset => 'utf-8'
+#   sass(:"public/css/#{params[:name]}", Compass.sass_engine_options )
+# end
+
 # Index page
 get '/' do
   erb :index

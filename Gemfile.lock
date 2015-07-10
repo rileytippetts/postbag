@@ -72,5 +72,6 @@ DEPENDENCIES
   compass
   evernote_oauth
   oauth
+  sass
   sinatra
   sinatra-contrib
