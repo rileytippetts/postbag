@@ -1,0 +1,32 @@
+
+// Font
+
+$font-display: 'Open Sans', Helvetica, sans-serif;
+$font-code: 	 'Roboto Mono', Monaco, 'Courier New', monospace;
+
+
+// Color
+
+$dark-gray: 					#333333;
+
+$green: 			        #3dbd64;
+$dark-green: 			    #319d4b;
+$blue: 		            #33acb2;
+$grey: 			          #758d94;
+
+
+// Size
+
+// $base-font-size: 		 	 	(18/17)*100%;
+// $baseline-unitless:  		28/(16*($base-font-size/100%));
+// $baseline: 							$baseline-unitless* 1rem;
+
+
+// Form
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}

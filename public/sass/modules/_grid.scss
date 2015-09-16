@@ -1,0 +1,44 @@
+/*  COLUMNS  */
+
+[class*='column-'] {
+	width: 100%;
+	padding: 0 20px 30px 20px;
+	float: left;
+	display: inline-block;
+	position: relative;
+}
+
+.column-20 {width: 20%}
+.column-25 {width: 25%}
+.column-33 {width: 33.33%}
+.column-40 {width: 40%}
+.column-50 {width: 50%}
+.column-60 {width: 60%}
+.column-66 {width: 66.66%}
+.column-75 {width: 75%}
+
+
+/*  SECTION & WRAPPER  */
+
+.section {
+	width: 100%;
+	padding: 0 0 2.5%;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1000;
+	margin: 0 auto;
+}
+
+.narrow {
+	max-width: 520px;
+}
+
+.clearfix:after,
+.wrapper:after,
+.section:after {
+	content: '';
+	display: block;
+	clear: both;
+}

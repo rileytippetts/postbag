@@ -1,0 +1,41 @@
+/*  HEADER  */
+
+#header {
+	margin-top: 2.5%;
+	padding-top: 50px;
+}
+
+/*  LOGO  */
+
+#logo {
+	margin: 0 auto;
+	fill: #48b6ea;
+	display: block;
+}
+
+/*  NAVIGATION  */
+
+.navigation {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 0;
+}
+
+.navigation a {
+	margin: 0 8px;
+	line-height: 100%;
+	font-size: 12px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	text-transform: uppercase;
+	position: relative;
+}
+
+.navigation .current {
+	color: #bbb;
+	text-decoration: line-through;
+}
+
+.navigation .nav-toggle {
+	display: none;
+}
