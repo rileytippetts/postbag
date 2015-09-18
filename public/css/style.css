@@ -30,14 +30,24 @@ html, body {
   min-height: 100%; }
 
 /* alt fonts */
-h1, h2 {
-  margin-bottom: 20px;
-  font-size: 40px;
+h1, h2, h3 {
+  margin-bottom: 32px;
+  font-size: 32px;
   font-weight: 300;
   word-wrap: break-word; }
 
 h2 {
-  font-size: 28px; }
+  font-size: 26px; }
+
+h3, h4 {
+  font-size: 18px;
+  line-height: 28px;
+  color: #ffffff; }
+
+h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; }
 
 /* pre code style */
 pre, code {
@@ -71,15 +81,17 @@ pre code {
 /* BODY */
 html,
 body {
-  font: normal 400 14px/20px "Open Sans", Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+  font: normal 400 14px/20px "Circular Air", "Open Sans", Helvetica, sans-serif;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #333333;
-  background-color: #fff; }
+  color: #758d94;
+  background-color: #15181c; }
 
 /* general body styles */
 strong {
@@ -105,7 +117,7 @@ a {
 /*  COLUMNS  */
 [class*='column-'] {
   width: 100%;
-  padding: 0 20px 30px 20px;
+  padding: 0 20px;
   float: left;
   display: inline-block;
   position: relative; }
@@ -135,13 +147,32 @@ a {
   width: 75%; }
 
 /*  SECTION & WRAPPER  */
+.container {
+  height: 100%; }
+
+/* The ghost, nudged to maintain perfect centering */
+.container:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */ }
+
 .section {
   width: 100%;
-  padding: 0 0 2.5%; }
+  display: block; }
+
+/* The element to be centered, can also be of any width and height */
+.vertical-center {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%; }
 
 .wrapper {
   width: 90%;
-  max-width: 1000;
+  max-width: 1000px;
   margin: 0 auto; }
 
 .narrow {
@@ -154,38 +185,48 @@ a {
   display: block;
   clear: both; }
 
-/*  HEADER  */
-#header {
-  margin-top: 2.5%;
-  padding-top: 50px; }
-
 /*  LOGO  */
-#logo {
-  margin: 0 auto;
-  fill: #48b6ea;
-  display: block; }
+.logo, .breadcrumb {
+  font-size: 32px;
+  color: #ffffff; }
+
+.badge {
+  height: 80px;
+  width: 80px;
+  margin: 0 auto 32px;
+  background: url("../img/badge.png") no-repeat 0 0;
+  background-size: 80px 80px; }
 
 /*  NAVIGATION  */
-.navigation {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 0; }
+nav.primary {
+  width: 100%;
+  min-width: 320px;
+  padding: 24px;
+  top: 0;
+  vertical-align: middle;
+  background: #15181c;
+  position: absolute;
+  z-index: 300; }
 
-.navigation a {
-  margin: 0 8px;
+nav.primary ul {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 30px; }
+
+nav.primary li {
+  font-size: 16px;
   line-height: 100%;
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  text-transform: uppercase;
-  position: relative; }
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  z-index: 100; }
 
-.navigation .current {
-  color: #bbb;
-  text-decoration: line-through; }
+nav.primary li,
+nav.primary li a {
+  color: #ffffff; }
 
-.navigation .nav-toggle {
-  display: none; }
+nav.primary .disabled {
+  opacity: 0.3; }
 
 /*  FORM ELEMENTS  */
 form {
@@ -278,27 +319,33 @@ input.blurred + label, textarea.blurred + label {
   top: 15px;
   opacity: 1; }
 
-[class*='button-'], button {
-  padding: 12px 16px;
+.button {
+  max-height: 44px;
+  min-width: 200px;
+  max-width: 100%;
+  padding: 14px 24px;
   font-size: 16px;
   font-weight: 400;
   line-height: 100%;
   text-align: center;
   color: #fff;
   background: #3dbd64;
-  display: block;
+  display: inline-block;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px; }
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  border-radius: 100px; }
 
-[class*='button-']:hover, button:hover {
+.button:hover {
   background: #319d4b; }
+
+.button-icon-left {
+  padding: 13px 24px 14px; }
 
 .button-small {
   padding: 12px 16px;

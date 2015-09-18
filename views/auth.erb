@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield_content :title %></title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"><!-- already in /public directory -->
+  </head>
+  <body>
+    <section class="section vertical-center">
+      <div class="wrapper narrow">
+        <div class="column-100">
+          <h2>Authenticate with Evernote</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrapper narrow">
+        <div class="column-33">
+          <%= yield %>
+        </div>
+      </div>
+    </section>
+
+    <script src="http://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- <script src="./js/site.js"></script> -->
+    <%= yield_content :js %>
+    <script>
+      $(document).ready(function(){
+        if(window.location.pathname.split('/').indexOf('notebooks') > -1){
+          $('.nav .active').removeClass('active');
+          $('.nav #notebooks').addClass('active');
+        }
+      });
+    </script>
+  </body>
+</html>

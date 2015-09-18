@@ -110,31 +110,30 @@ input.blurred + label, textarea.blurred + label {
 	opacity: 1;
 }
 
-[class*='button-'], button {
-	padding: 12px 16px;
+.button {
+	max-height: 44px;
+	min-width: 200px;
+	max-width: 100%;
+	padding: 14px 24px;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 100%;
 	text-align: center;
 	color: #fff;
 	background: $green;
-	display: block;
+	display: inline-block; // use inline-block for auto width
 	cursor: pointer;
 
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
-	@include border-radius(4px);
+	@include user-select(none);
+	@include border-radius(100px);
 }
 
-[class*='button-']:hover, button:hover {
+.button:hover {
 	background: $dark-green;
 }
 
-.button-large {
-
+.button-icon-left {
+	padding: 13px 24px 14px;
 }
 
 .button-small {

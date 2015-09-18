@@ -2,8 +2,33 @@
   Postbag
 <% end %>
 
-<% if session[:access_token] %>
-  <a href="/reset" class="btn btn-primary btn-lg" role="button">Reset Token</a>
-<% else %>
-  <a href="/requesttoken" class="btn btn-primary btn-lg" role="button">Authorize with Evernote</a>
+<% content_for(:navigation) do %>
+  <nav class="primary">
+    <div class="wrapper">
+      <ul>
+        <li class=""><a href="/"><span class="icon-logo logo"></span></a></li>
+        <li class=""><span class="icon-arrow-right-32px breadcrumb"></span></li>
+        <li class=""><a href="">Authenticate</a></li>
+        <li class="disabled"><span class="icon-arrow-right-32px breadcrumb"></span></li>
+        <li class="disabled">Choose a notebook</li>
+      </ul>
+    </div>
+  </nav>
 <% end %>
+
+<!-- CONTENT -->
+<div class="container">
+    <section class="vertical-center">
+      <div class="wrapper narrow">
+        <div class="column-100">
+          <!-- <div class="badge"></div> -->
+          <h3 class="primary-heading">You need to authorize with Evernote first.</h3>
+          <% if session[:access_token] %>
+            <a href="/reset" class="button button-icon-left" role="button"><span class="icon-refresh-16px"></span>&nbsp;&nbsp;Reset Token</a>
+          <% else %>
+            <a href="/requesttoken" class="button button-icon-left" role="button"><span class="icon-lock-16px"></span>&nbsp;&nbsp;Authorize with Evernote</a>
+          <% end %>
+        </div>
+      </div>
+    </section>
+</div>

@@ -2,6 +2,8 @@
 
 html,
 body {
+	height: 100%;
+	width: 100%;
 	font: normal 400 14px/20px $font-display;
 
 	-moz-text-size-adjust: 		  none;
@@ -12,9 +14,8 @@ body {
 	-webkit-font-smoothing: 		antialiased;
 	-moz-osx-font-smoothing: 		grayscale;
 
-	color: $dark-gray;
-
-	background-color: #fff;
+	color: $grey;
+	background-color: $black;
 }
 
 /* general body styles */
