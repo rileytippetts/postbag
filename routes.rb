@@ -2,7 +2,11 @@
 
 # Index page
 get '/' do
-  erb :index
+  if authorized
+    redirect '/notebooks'
+  else
+    erb :index
+  end
 end
 
 
@@ -55,7 +59,7 @@ get '/callback' do
 end
 
 
-# notebook CRUD start
+# Display all notebooks
 get '/notebooks' do
   begin
     if authorized

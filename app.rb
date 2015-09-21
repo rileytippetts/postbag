@@ -5,6 +5,8 @@
 require 'sinatra'
 require 'sinatra/content_for'
 require 'action_view'
+require 'sass'
+require 'compass'
 
 include ActionView::Helpers::JavaScriptHelper
 
@@ -16,10 +18,7 @@ enable :sessions
 
 # Load our dependencies and configuration settings
 $LOAD_PATH.push(File.expand_path(File.dirname(__FILE__)))
-configure do
-  require 'config/compass_config.rb'
-  require 'config/evernote_config.rb'
-end
+require 'config/config.rb'
 
 # Verify that you have obtained an Evernote API key
 before do

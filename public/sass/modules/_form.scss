@@ -1,0 +1,149 @@
+/*  FORM ELEMENTS  */
+
+form {
+	width: 100%;
+	margin-bottom: 25px;
+	float: left;
+}
+
+input, textarea, button, select {
+	background: none;
+	position: relative;
+
+	border-radius: 0;
+
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+}
+
+input, textarea, select {
+	width: 100%;
+	padding: 5px 15px;
+	color: #111;
+	z-index: 2000;
+
+	-webkit-transition: padding .15s ease-out;
+	   -moz-transition: padding .15s ease-out;
+	        transition: padding .15s ease-out;
+}
+
+input[data-state='error'], textarea[data-state='error'],
+input[data-state='success'], textarea[data-state='success'],
+input.blurred, textarea.blurred {
+	padding: 30px 15px 10px;
+}
+
+textarea[data-state='error'], textarea[data-state='success'], textarea.blurred {
+	padding-top: 35px;
+}
+
+textarea {
+	overflow: hidden;
+	resize: none;
+}
+
+select {
+	width: 107.5%;
+}
+
+.float-label .drop-down {
+	height: 12px;
+	width: 12px;
+	top: 50%;
+	right: 15px;
+	margin-top: -3px;
+	border: 6px solid transparent;
+	border-top-color: #999;
+	position: absolute;
+}
+
+input:focus + label, textarea:focus + label {
+	color: #3d98e5;
+}
+
+input[data-state='error'] + label,
+textarea[data-state='error'] + label {
+	color: #e73e52 !important;
+}
+
+input[data-state='success'] + label,
+textarea[data-state='success'] + label {
+	color: #5ccc79 !important;
+}
+
+.float-label {
+	margin: 0 0 10px 0;
+	background: #eee;
+	position: relative;
+	overflow: hidden;
+
+	border-radius: 3px;
+
+	-webkit-transition: background-color .15s ease-out;
+	   -moz-transition: background-color .15s ease-out;
+	        transition: background-color .15s ease-out;
+}
+
+.float-label label {
+	top: 22px;
+	left: 15px;
+	text-transform: uppercase;
+	font-size: 11px;
+	letter-spacing: 1px;
+	font-weight: 700;
+	color: #111;
+	line-height: 100%;
+	position: absolute;
+	z-index: 1000;
+	opacity: 0;
+
+	-webkit-transition: color .15s ease-out, top .15s ease-out, opacity .15s ease-out;
+	   -moz-transition: color .15s ease-out, top .15s ease-out, opacity .15s ease-out;
+	        transition: color .15s ease-out, top .15s ease-out, opacity .15s ease-out;
+}
+
+input[data-state='error'] + label, textarea[data-state='error'] + label,
+input[data-state='success'] + label, textarea[data-state='success'] + label,
+input.blurred + label, textarea.blurred + label {
+	top: 15px;
+	opacity: 1;
+}
+
+/* button */
+
+.button {
+	max-height: 44px;
+	min-width: 100px;
+	max-width: 100%;
+	padding: 14px 24px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 100%;
+	text-align: center;
+	color: #fff;
+	background: $green;
+	display: inline-block; // use inline-block for auto width
+	cursor: pointer;
+
+	@include user-select(none);
+	@include border-radius(100px);
+}
+
+.button:hover {
+	background: $dark-green;
+}
+
+.button-icon-left {
+	padding: 13px 24px 14px;
+}
+
+.button-full-width {
+	width: 100%;
+}
+
+// .button.loading {
+// 	color: transparent;
+// 	background-image: url('../img/loader.gif');
+// 	background-size: 20px;
+// }

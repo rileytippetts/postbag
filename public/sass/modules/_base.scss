@@ -1,0 +1,46 @@
+/* BODY */
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font: normal 400 16px/24px $font-display;
+
+	-moz-text-size-adjust: 		  none;
+	-ms-text-size-adjust: 		  none;
+	-webkit-text-size-adjust: 	none;
+	text-size-adjust: 			    none;
+
+	-webkit-font-smoothing: 		antialiased;
+	-moz-osx-font-smoothing: 		grayscale;
+
+	color: $grey;
+	background-color: $black;
+}
+
+/* general body styles */
+
+strong {
+	font-style: normal;
+	font-weight: 700;
+}
+
+em {
+	font-style: italic;
+}
+
+p {
+	margin-bottom: 20px;
+	word-wrap: break-word;
+}
+
+a {
+	color: $blue;
+	font-weight: 400;
+	text-decoration: none;
+	cursor: pointer;
+
+	-webkit-transition: color .15s ease-out, background-color .15s ease-out;
+	   -moz-transition: color .15s ease-out, background-color .15s ease-out;
+	        transition: color .15s ease-out, background-color .15s ease-out;
+}

@@ -1,26 +1,26 @@
+<% content_for(:title) do %>
+  Postbag - Notebooks
+<% end %>
+
+<% content_for(:navigation) do %>
+  <li class=""><span class="icon-logo logo"></span></a></li>
+  <li class=""><span class="icon-arrow-right-32px breadcrumb"></span></li>
+  <li class=""><%= username %></li>
+  <li class=""><span class="icon-arrow-right-32px breadcrumb"></span></li>
+  <li class=""><a href="/notebooks">Choose a notebook</a></li>
+<% end %>
+
+<!-- CONTENT -->
 <% if !authorized %>
   <div class="alert alert-danger">You need to <a href='/requesttoken'>authorize</a> first.</div>
 <% else %>
-  <div class="alert alert-success">Hi <strong><em><%= username %></em></strong>, there are <%= notebooks.count %> notebooks and <%= @total_notes_count %> notes in your account</div>
-  <div class="panel panel-default panel-info notebooks-panel">
-    <div class="panel-heading">
-      Notebooks
-    </div>
-
-    <ul class="list-group">
+  <section class="">
+    <div class="wrapper">
       <% notebooks.each do |notebook| %>
-        <li class="list-group-item">
-          <a href="/notebooks/<%= notebook.guid %>/notes"><%= notebook.name %></a>
-        </li>
+        <div class="column-25 notebook-container">
+          <a href="/notebooks/<%= notebook.guid %>/notes" class="notebook-cover"><%= notebook.name %></a>
+        </div>
       <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<% content_for(:js) do %>
-<script>
-$('.notebooks-panel #notebook-delete').click(function(){
-  alert("Evernote API does not support to delete notebook, even under full access.")
-});
-</script>
+    </div>
+  </section>
 <% end %>

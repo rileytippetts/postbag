@@ -1,0 +1,48 @@
+// Import _grid module.
+
+@import 'grid';
+
+
+/*  SECTION & WRAPPER  */
+
+.container {
+  height: 100%;
+}
+
+/* The ghost, nudged to maintain perfect centering */
+.container:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.section {
+	width: 100%;
+}
+
+/* The element to be centered, can also be of any width and height */
+.vertical-center {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.narrow {
+	max-width: 520px;
+}
+
+.clearfix:after,
+.wrapper:after,
+.section:after {
+	content: '';
+	display: block;
+	clear: both;
+}

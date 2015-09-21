@@ -1,0 +1,41 @@
+
+// Font
+
+$font-display: 'Circular Air', 'Open Sans', Helvetica, sans-serif;
+$font-code: 	 'Roboto Mono', Monaco, 'Courier New', monospace;
+
+
+// Color
+
+$white:               #ffffff;
+$black:               #151517; // #12151a
+$dark-gray: 					#333333;
+
+$green: 			        #33b55a; // #53a93f
+$dark-green: 			    #269e40;
+$blue: 		            #33acb2;
+$grey: 			          #758d94;
+
+
+// Size
+
+// $base-font-size: 		 	 	(18/17)*100%;
+// $baseline-unitless:  		28/(16*($base-font-size/100%));
+// $baseline: 							$baseline-unitless* 1rem;
+
+
+// Form
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select;
+          user-select: $select;
+}
