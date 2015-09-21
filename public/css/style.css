@@ -78,41 +78,37 @@ pre code {
   border: none;
   background: none; }
 
-/* BODY */
-html,
-body {
-  height: 100%;
+/*  COLUMNS  */
+[class*='column-'] {
   width: 100%;
-  font: normal 400 14px/20px "Circular Air", "Open Sans", Helvetica, sans-serif;
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #758d94;
-  background-color: #15181c; }
+  padding: 0 20px;
+  float: left;
+  display: inline-block;
+  position: relative; }
 
-/* general body styles */
-strong {
-  font-style: normal;
-  font-weight: 700; }
+.column-20 {
+  width: 20%; }
 
-em {
-  font-style: italic; }
+.column-25 {
+  width: 25%; }
 
-p {
-  margin-bottom: 20px;
-  word-wrap: break-word; }
+.column-33 {
+  width: 33.33%; }
 
-a {
-  color: #33acb2;
-  font-weight: 400;
-  text-decoration: none;
-  cursor: pointer;
-  -webkit-transition: color .15s ease-out, background-color .15s ease-out;
-  -moz-transition: color .15s ease-out, background-color .15s ease-out;
-  transition: color .15s ease-out, background-color .15s ease-out; }
+.column-40 {
+  width: 40%; }
+
+.column-50 {
+  width: 50%; }
+
+.column-60 {
+  width: 60%; }
+
+.column-66 {
+  width: 66.66%; }
+
+.column-75 {
+  width: 75%; }
 
 /*  COLUMNS  */
 [class*='column-'] {
@@ -160,15 +156,13 @@ a {
   /* Adjusts for spacing */ }
 
 .section {
-  width: 100%;
-  display: block; }
+  width: 100%; }
 
 /* The element to be centered, can also be of any width and height */
 .vertical-center {
   text-align: center;
   display: inline-block;
-  vertical-align: middle;
-  width: 100%; }
+  vertical-align: middle; }
 
 .wrapper {
   width: 90%;
@@ -184,6 +178,42 @@ a {
   content: '';
   display: block;
   clear: both; }
+
+/* BODY */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font: normal 400 16px/24px "Circular Air", "Open Sans", Helvetica, sans-serif;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #758d94;
+  background-color: #151517; }
+
+/* general body styles */
+strong {
+  font-style: normal;
+  font-weight: 700; }
+
+em {
+  font-style: italic; }
+
+p {
+  margin-bottom: 20px;
+  word-wrap: break-word; }
+
+a {
+  color: #33acb2;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: color .15s ease-out, background-color .15s ease-out;
+  -moz-transition: color .15s ease-out, background-color .15s ease-out;
+  transition: color .15s ease-out, background-color .15s ease-out; }
 
 /*  LOGO  */
 .logo, .breadcrumb {
@@ -202,10 +232,9 @@ nav.primary {
   width: 100%;
   min-width: 320px;
   padding: 24px;
-  top: 0;
   vertical-align: middle;
-  background: #15181c;
-  position: absolute;
+  background: #151517;
+  position: relative;
   z-index: 300; }
 
 nav.primary ul {
@@ -319,9 +348,10 @@ input.blurred + label, textarea.blurred + label {
   top: 15px;
   opacity: 1; }
 
+/* button */
 .button {
   max-height: 44px;
-  min-width: 200px;
+  min-width: 100px;
   max-width: 100%;
   padding: 14px 24px;
   font-size: 16px;
@@ -329,7 +359,7 @@ input.blurred + label, textarea.blurred + label {
   line-height: 100%;
   text-align: center;
   color: #fff;
-  background: #3dbd64;
+  background: #33b55a;
   display: inline-block;
   cursor: pointer;
   -webkit-user-select: none;
@@ -342,15 +372,29 @@ input.blurred + label, textarea.blurred + label {
   border-radius: 100px; }
 
 .button:hover {
-  background: #319d4b; }
+  background: #269e40; }
 
 .button-icon-left {
   padding: 13px 24px 14px; }
 
-.button-small {
-  padding: 12px 16px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase; }
+.button-full-width {
+  width: 100%; }
+
+/*  CONTENT  */
+/* notebook */
+.notebook-container {
+  position: relative; }
+
+.notebook-cover {
+  width: 100%;
+  height: 288px;
+  background: #758d94;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px; }
 
 /*# sourceMappingURL=style.css.map */

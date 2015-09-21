@@ -1,0 +1,27 @@
+/*  CONTENT  */
+
+.page-header {
+
+}
+
+.page-header [class*='column-'] {
+  
+}
+
+
+/* notebook */
+
+.notebook-container {
+  position: relative;
+}
+
+.notebook-cover {
+  width: 100%;
+  height: 288px;
+  background: $grey;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+	@include border-radius(4px);
+}

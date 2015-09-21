@@ -110,9 +110,11 @@ input.blurred + label, textarea.blurred + label {
 	opacity: 1;
 }
 
+/* button */
+
 .button {
 	max-height: 44px;
-	min-width: 200px;
+	min-width: 100px;
 	max-width: 100%;
 	padding: 14px 24px;
 	font-size: 16px;
@@ -136,14 +138,11 @@ input.blurred + label, textarea.blurred + label {
 	padding: 13px 24px 14px;
 }
 
-.button-small {
-	padding: 12px 16px;
-	font-size: 12px;
-	font-weight: 600;
-	text-transform: uppercase;
+.button-full-width {
+	width: 100%;
 }
 
-// button.loading {
+// .button.loading {
 // 	color: transparent;
 // 	background-image: url('../img/loader.gif');
 // 	background-size: 20px;

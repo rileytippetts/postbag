@@ -9,3 +9,6 @@ gem 'actionpack'
 # Sass & Compass
 gem 'sass'
 gem 'compass'
+
+# JSON
+gem 'json'

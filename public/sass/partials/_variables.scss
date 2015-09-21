@@ -8,11 +8,11 @@ $font-code: 	 'Roboto Mono', Monaco, 'Courier New', monospace;
 // Color
 
 $white:               #ffffff;
-$black:               #15181c; // #12151a
+$black:               #151517; // #12151a
 $dark-gray: 					#333333;
 
-$green: 			        #3dbd64;
-$dark-green: 			    #319d4b;
+$green: 			        #33b55a; // #53a93f
+$dark-green: 			    #269e40;
 $blue: 		            #33acb2;
 $grey: 			          #758d94;
 
@@ -33,7 +33,6 @@ $grey: 			          #758d94;
           border-radius: $radius;
 }
 
-// Arguments: none, text
 @mixin user-select($select) {
   -webkit-user-select: $select;
      -moz-user-select: $select;

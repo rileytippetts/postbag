@@ -11,12 +11,19 @@
     </script> -->
 
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/91617f570e/postbag/style.css">
+    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/d4377135fe/postbag/style.css">
 
   </head>
   <body>
 
-    <%= yield_content :navigation %>
+    <!-- NAV -->
+    <nav class="primary">
+      <div class="wrapper">
+        <ul>
+          <%= yield_content :navigation %>
+        </ul>
+      </div>
+    </nav>
 
     <%= yield %>
 
