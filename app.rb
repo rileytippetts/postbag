@@ -28,7 +28,7 @@ before do
 end
 
 # Load app helper methods
-require 'helpers/evernote_helpers.rb'
+require 'helpers/helpers.rb'
 
 # Load app routes
 require 'routes.rb'

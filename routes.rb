@@ -3,10 +3,16 @@
 # Index page
 get '/' do
   if authorized
-    redirect '/notebooks'
+    redirect '/dashboard' + '/' + default_notebook
   else
-    erb :index
+    redirect '/login'
   end
+end
+
+
+# Login page
+get '/login' do
+  erb :login
 end
 
 
@@ -51,7 +57,7 @@ get '/callback' do
   session[:oauth_verifier] = params['oauth_verifier']
   begin
     session[:access_token] = session[:request_token].get_access_token(:oauth_verifier => session[:oauth_verifier])
-    redirect '/notebooks'
+    redirect '/dashboard'
   rescue => e
     @last_error = 'Error extracting access token'
     erb :error
@@ -60,7 +66,7 @@ end
 
 
 # Display all notebooks
-get '/notebooks' do
+get '/dashboard' do
   begin
     if authorized
       # Get total notes count
@@ -76,7 +82,7 @@ end
 
 
 # note CRUD start
-get '/notebooks/:notebook_id/notes' do
+get '/dashboard/:notebook_id/notes' do
   @notebook = find_notebook
   filter = Evernote::EDAM::NoteStore::NoteFilter.new
   filter.notebookGuid = @notebook.guid
@@ -85,7 +91,7 @@ get '/notebooks/:notebook_id/notes' do
   erb 'notebooks/notes/index'.to_sym
 end
 
-get '/notebooks/:notebook_id/notes/:id' do
+get '/dashboard/:notebook_id/notes/:id' do
   @note = find_note
   @content = get_note_content(@note)
   erb 'notebooks/notes/show'.to_sym
