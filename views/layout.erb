@@ -29,15 +29,6 @@
 
     <script src="http://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <!-- <script src="./js/site.js"></script> -->
     <%= yield_content :js %>
-    <script>
-      $(document).ready(function(){
-        if(window.location.pathname.split('/').indexOf('notebooks') > -1){
-          $('.nav .active').removeClass('active');
-          $('.nav #notebooks').addClass('active');
-        }
-      });
-    </script>
   </body>
 </html>

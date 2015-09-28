@@ -73,7 +73,7 @@ get '/dashboard' do
       @total_notes_count = total_note_count
     end
 
-    erb 'notebooks/index'.to_sym
+    erb :index
   rescue => e
     @last_error = 'Error listing notebooks: #{e.message}'
     erb :error
@@ -82,17 +82,17 @@ end
 
 
 # note CRUD start
-get '/dashboard/:notebook_id/notes' do
+get '/dashboard/:notebook_id' do
   @notebook = find_notebook
   filter = Evernote::EDAM::NoteStore::NoteFilter.new
   filter.notebookGuid = @notebook.guid
   @notes = note_store.findNotes(filter, 0, 100).notes
 
-  erb 'notebooks/notes/index'.to_sym
+  erb 'notes/index'.to_sym
 end
 
-get '/dashboard/:notebook_id/notes/:id' do
+get '/dashboard/:notebook_id/:id' do
   @note = find_note
   @content = get_note_content(@note)
-  erb 'notebooks/notes/show'.to_sym
+  erb 'notes/show'.to_sym
 end

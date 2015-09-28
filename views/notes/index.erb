@@ -11,10 +11,9 @@
     <ul class="list-group">
       <% @notes.each do |note| %>
         <li class="list-group-item">
-          <a href='/notebooks/<%= @notebook.guid %>/notes/<%= note.guid %>'><%= note.title %></a>
+          <a href='/dashboard/<%= @notebook.guid %>/<%= note.guid %>'><%= note.title %></a>
         </li>
       <% end %>
     </ul>
   </div>
 <% end %>
-
